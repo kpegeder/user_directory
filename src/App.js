@@ -1,8 +1,8 @@
 import React from "react";
-import JSXVariables from "./components/JSXVariables";
+import EmployeeContainer from "./components/EmployeeContainer";
 
 function App() {
-  return <JSXVariables />;
+  return <EmployeeContainer />;
 }
 
 export default App;
