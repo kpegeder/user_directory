@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Container from "./Container";
-import Row from "./Row";
-import Col from "./Col";
-import Card from "./Card";
-import SearchForm from "./SearchForm";
-import EmployeeDetails from "./EmployeeDetails";
-import API from "../utils/API";
+import Container from "../Container";
+import Row from "../Row";
+import Col from "../Col";
+import Card from "../Card";
+import SearchForm from "../SearchForm";
+import EmployeeDetails from "../EmployeeDetails";
+import API from "../../utils/API";
 
 class EmployeeContainer extends Component {
   state = {
@@ -46,7 +46,7 @@ class EmployeeContainer extends Component {
     this.searchEmployees(this.state.search);
   };
 
-  sortByFirst = (currentSpot, nextSpot) => {
+  sortByFirstName = (currentSpot, nextSpot) => {
     if (currentSpot.name.first > nextSpot.name.first) {
       return 1;
     }
@@ -55,15 +55,17 @@ class EmployeeContainer extends Component {
 
   sortByName = (event) => {
     event.preventDefault();
+    console.log("hello");
     const { order } = this.state;
     let sortedArr = [];
     if (order === "asc") {
-      sortedArr = this.state.result.sort(this.sortByFirst);
+      sortedArr = this.state.result.sort(this.sortByFirstName);
     } else {
-      sortedArr = this.state.result.reverse(this.sortByFirst);
+      sortedArr = this.state.result.reverse(this.sortByFirstName);
     }
     this.setState({
       result: sortedArr,
+      updateList: sortedArr,
       order: order === "asc" ? "desc" : "asc",
     });
   };

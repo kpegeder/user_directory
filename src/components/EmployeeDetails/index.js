@@ -1,7 +1,7 @@
 import React from "react";
 
 function EmployeeDetails(props) {
-  let result = props.results;
+  // let result = props.results;
 
   return (
     <table className="table">
@@ -17,7 +17,7 @@ function EmployeeDetails(props) {
         </tr>
       </thead>
       <tbody>
-        {result.map((result) => (
+        {props.results.map((result) => (
           <tr key={result.login.uuid}>
             <td>
               <img
