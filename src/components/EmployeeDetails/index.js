@@ -1,8 +1,7 @@
 import React from "react";
+import "./style.css";
 
 function EmployeeDetails(props) {
-  // let result = props.results;
-
   return (
     <table className="table">
       <thead>

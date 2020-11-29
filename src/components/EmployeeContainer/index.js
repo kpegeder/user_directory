@@ -6,6 +6,11 @@ import Card from "../Card";
 import SearchForm from "../SearchForm";
 import EmployeeDetails from "../EmployeeDetails";
 import API from "../../utils/API";
+import "./style.css";
+
+const headerStyle = {
+  "text-align": "center",
+};
 
 class EmployeeContainer extends Component {
   state = {
@@ -70,11 +75,20 @@ class EmployeeContainer extends Component {
     });
   };
 
+  // const jumboStyle = {
+  //   'text-align': 'center';
+  // }
+
   render() {
     return (
       <Container>
+        <div class="jumbotron">
+          <h1 class="display-4" style={headerStyle}>
+            Employee Directory
+          </h1>
+        </div>
         <Row>
-          <Col size="md-4">
+          <Col size="md-12">
             <Card heading="Search">
               <SearchForm
                 value={this.state.search}
@@ -86,16 +100,10 @@ class EmployeeContainer extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Card>
-              {/* {this.state.results ? ( */}
-              <EmployeeDetails
-                results={this.state.updateList}
-                sortByName={this.sortByName}
-              />
-              {/* // ) : (
-              //   <h3>No Results to Display</h3>
-              // )} */}
-            </Card>
+            <EmployeeDetails
+              results={this.state.updateList}
+              sortByName={this.sortByName}
+            />
           </Col>
         </Row>
       </Container>
